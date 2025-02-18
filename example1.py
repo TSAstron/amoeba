@@ -2,13 +2,13 @@ from amoeba import Amoeba
 import numpy
 
 def rosen(X):
-    """ the Rosen function for arbitrary number of arguments """
+    """ the Rosenbrock function for arbitrary number of arguments """
     return (1-X[:-1])@(1-X[:-1]) + 100*(X[1:]-X[:-1]*X[:-1])@(X[1:]-X[:-1]*X[:-1])
 
 # initial simplex: 4 varibales, so 5 points
 sim0 = 10*numpy.random.random((4+1,4))
 
-# create the crawler with the Rosen function, no optimized fmap, automatic dimension
+# create the crawler with the Rosenbrock function, no optimized fmap, automatic dimension
 # sim0 is not copied internally and WILL be modified in the process!
 ameba = Amoeba(f=rosen, simplex=sim0)
 
@@ -19,7 +19,7 @@ ameba.prep()
 # break criterion based on size, which is the scale of the simplex
 # so the actual minimum is expected to lie within that distance from the current best
 
-x_tol = 5e-16
+x_tol = 3e-16
 
 for _ in range(1000):
     ameba.step()
@@ -28,4 +28,4 @@ for _ in range(1000):
 else:
   print(f'Warning, 1000 steps taken, but the size is above the threshold ({x_tol}).')
 
-print(f'The value of f at x = {ameba.best} is {ameba.values[]}.')
+print(f'After {ameba.iterations} iterations, the value of f at x = {ameba.best} is {ameba.values[ameba.ord[0]:.4e}.')
