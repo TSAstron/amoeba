@@ -1,4 +1,4 @@
-ba.from amoeba import Amoeba
+from amoeba import Amoeba
 import numpy
 
 def rosen(X):
