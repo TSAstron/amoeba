@@ -19,7 +19,7 @@ ameba.prep()
 # break criterion based on size, which is the scale of the simplex
 # so the actual minimum is expected to lie within that distance from the current best
 
-x_tol = 5e-16
+x_tol = 3e-16
 
 for _ in range(1000):
     ameba.step()
