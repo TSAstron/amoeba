@@ -11,7 +11,7 @@ The function to minimize, `U`, should take a numpy array as its argument and ret
 
 Usually when there are `d` problem parametrs (the length of argument of `U`), the simplex has `d+1` points. But because of specific embedding one might want different dimensions of the simplex and the embedding space. Whatever shape the initial simplex has, it will be accepted, but explicit dimension can be specified (with keyword `dim`) to remove the co-dimension warning. If no simplex is specified, the default is `[[0,0,0],[1,0,0],[0,1,0],[0,0,1]]` and it's higher-dimensional analogons.
 
-For most iterations, `U` will be evaluated once or twice on speific points, but for some operations it has to be called on all points. It then makes sense to have ready a vectorize/parallel/optimized version, `U_opt`, that takes the whole simplex array as the argument. With the initial simplex `sim0`, the object is then created via (only `f` is required)
+For most iterations, `U` will be evaluated once or twice on speific points, but for some operations it has to be called on all points. It then makes sense to have ready a vectorize/parallel/optimized version, `U_opt`, that takes the whole simplex array as the argument. With the initial simplex `sim0`, the object is then created via (`f` is required, the others optional)
 
 `ameba = Amoeba(f=U0, fmap=U_opt, sim=sim0, dim=d)`
 
