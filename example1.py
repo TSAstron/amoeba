@@ -28,4 +28,4 @@ for _ in range(1000):
 else:
   print(f'Warning, 1000 steps taken, but the size is above the threshold ({x_tol}).')
 
-print(f'After {ameba.iterations} iterations, the value of f at x = {ameba.best} is {ameba.values[ameba.ord[0]:.4e}.')
+print(f'After {ameba.iterations} iterations, the value of f at x = {ameba.best} is {ameba.values[ameba.ord[0]]:.4e}.')

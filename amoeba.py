@@ -4,7 +4,7 @@ try:
   from termcolor import colored
 except ImportError:
   print('Warning, could not import the termcolor module. Switching to standard output.')
-  colored = lambda q: q
+  colored = lambda q, c: q
 
 class Amoeba():
     def __init__(self, f=None, fmap=None, simplex=None, dim=None):
@@ -62,8 +62,8 @@ class Amoeba():
     def eval(self, start=0, lvl=0):
         """ evaluate f on all vertices, beginning at 'start'. The order is the current self.ord,
         so start=0 begins at the minimal vertex """
+        pret = ' │ ' if lvl>0 else ''
         if self.fmap is None: # when no optimized version is give, it's a simple loop
-            pret = ' │ ' if lvl>0 else ''
             print(pret+'fmap not specified, proceeding with ordinary loop')
             for i, o in enumerate(self.ord[start:]):
                 print( f"{pret}{i+1:{self.di}d} of {self.len-start}\r", end='', flush=True)
