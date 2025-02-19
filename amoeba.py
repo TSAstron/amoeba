@@ -4,7 +4,7 @@ try:
   from termcolor import colored
 except ImportError:
   print('Warning, could not import the termcolor module. Switching to standard output.')
-  colored = lambda q: q
+  colored = lambda q, c: q
 
 class Amoeba():
     def __init__(self, f=None, fmap=None, simplex=None, dim=None):
