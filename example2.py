@@ -49,7 +49,7 @@ min00 = ameba.values[ameba.ord[0]]
 print(f'The initial value of f at x = {ameba.best} is {min00:.4e}.\n')
 
 # ameba.len is the number of points so this loop more or less 
-# goes over the whole simplex 100 times
+# goes over the whole simplex 2000 times
 # stops after the first shrinking
 for i in range(2000*ameba.len):
     # ameba.di is the number of digits, whichis useful for padding
